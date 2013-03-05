@@ -5,7 +5,7 @@
       return this.id.match(/favcnt/);
     });
 
-    var fav = favSpan.text().match(/(\d+) favorites/);
+    var fav = favSpan.text().match(/(\d+) favorite/);
     if (fav === null) {
       return 0;
     } else {
