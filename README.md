@@ -7,4 +7,4 @@ This is very much a work in progress.
 
 To use, drag the link below to your bookmarks bar, and click it when you're on a Metafilter discussion page.
 
-[Drag Me!](javascript:(function() { var newScript = document.createElement('script'); newScript.src = 'https://raw.github.com/vikasgorur/SkimMetafilter/master/SkimMetafilter.js'; document.body.appendChild(newScript); })();)
+<a href="javascript:(function() { var newScript = document.createElement('script'); newScript.src = 'https://raw.github.com/vikasgorur/SkimMetafilter/master/SkimMetafilter.js'; document.body.appendChild(newScript); })();)">Drag me!</a>
