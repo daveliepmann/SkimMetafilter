@@ -5,6 +5,8 @@ I love reading the comments on [Metafilter](http://www.metafilter.com). Sometime
 
 This is very much a work in progress.
 
-To use, drag the link below to your bookmarks bar, and click it when you're on a Metafilter discussion page.
+To use, create a bookmark with the following text as the link, and click it when you're on a Metafilter discussion page.
 
-<a href="javascript:(function() { var newScript = document.createElement('script'); newScript.src = 'https://raw.github.com/vikasgorur/SkimMetafilter/master/SkimMetafilter.js'; document.body.appendChild(newScript); })();)">Drag me!</a>
+```javascript
+javascript:(function() { var newScript = document.createElement('script'); newScript.src = 'https://raw.github.com/vikasgorur/SkimMetafilter/master/SkimMetafilter.js'; document.body.appendChild(newScript); })();)
+```
