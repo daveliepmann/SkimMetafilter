@@ -1,4 +1,6 @@
 (function () {
+  var debug = true;
+
   // Given the div element of a comment, return its favorite count
   var favoriteForComment = function(commentDiv) {
     var favSpan = $(commentDiv).find('span').filter(function () {
@@ -47,9 +49,14 @@
     $.each(comments, function (index, comment) {
       if (favoriteSum > filterThreshold) {
         var div = $(comment.div);
-        div.next('br').remove();
-        div.next('br').remove();
-        div.remove();
+
+        if (debug) {
+          div.css({'background-color': 'rgb(0,51,70)'});
+        } else {
+          div.next('br').remove();
+          div.next('br').remove();
+          div.remove();
+        }
 
         deletedCount += 1;
       } else {
