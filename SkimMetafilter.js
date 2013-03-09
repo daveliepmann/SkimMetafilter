@@ -1,5 +1,5 @@
 (function () {
-  var debug = true;
+  var debug = false;
 
   // Given the div element of a comment, return its timestamp
   var timestampForComment = function(commentDiv) {
