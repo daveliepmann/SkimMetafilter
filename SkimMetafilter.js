@@ -15,8 +15,35 @@
     }
   }
 
-  // Given the div element of a comment, return its favorite count
-  var favoriteForComment = function(commentDiv) {
+  var loggedIn;
+
+  // Return true if this is a logged-in use
+  var isLoggedIn = function() {
+    if (loggedIn === undefined) {
+      var login = $('#navoften').find('li').filter(function() {
+        return $(this).find('a').html().match(/Login/);
+      });
+
+      loggedIn = (login.length === 0);
+    }
+
+    return loggedIn;
+  };
+
+  notLoggedInFavorite = function(commentDiv) {
+    var favAnchor = $(commentDiv).find('span').find('a').filter(function() {
+      return $(this).html().match(/favorite/);
+    });
+
+    var fav = favAnchor.text().match(/(\d+) favorite/);
+    if (fav === null) {
+      return 0;
+    } else {
+      return parseInt(fav[1], 10);
+    }
+  };
+
+  loggedInFavorite = function(commentDiv) {
     var favSpan = $(commentDiv).find('span').filter(function () {
       return this.id.match(/favcnt/);
     });
@@ -29,7 +56,16 @@
     }
   };
 
-  var filterComments = function () {
+  // Given the div element of a comment, return its favorite count
+  favoriteForComment = function(commentDiv) {
+    if (isLoggedIn()) {
+      return loggedInFavorite(commentDiv);
+    } else {
+      return notLoggedInFavorite(commentDiv);
+    }
+  };
+
+  filterComments = function () {
     var totalFavorites = 0;
     var favorites      = [];
     var comments       = [];
