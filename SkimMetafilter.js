@@ -115,10 +115,10 @@
                 if (debug) {
                     div.css({'background-color': 'rgb(0,51,70)'});
                 } else {
-                    div.next('br').remove();
-                    div.next('br').remove();
-                    //          div.remove();
-                    div.css({'color': "#333"});
+                    //div.next('br').remove();
+                    //div.next('br').remove();
+                    //div.remove();
+                    div.css({'color': "#aaa"});
                 }
 
                 deletedCount += 1;
@@ -126,9 +126,6 @@
                 favoriteSum += comment.favorite;
             }
         });
-
-        // Provide a visual indication that the page has been filtered
-        $('body').css({'background-color': 'rgb(0,102,140)'});
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
                     "; kept " + (comments.length - deletedCount) + " out of " + comments.length +
