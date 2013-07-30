@@ -79,7 +79,7 @@
       totalFavorites += fav;
     });
 
-    var filterThreshold = totalFavorites * 0.9;
+    var filterThreshold = totalFavorites * 0.95;
 
     // Sorts a, b in decreasing order
     var intCompare = function(a, b) {
