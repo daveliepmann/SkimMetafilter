@@ -1,5 +1,5 @@
 (function () {
-    var debug = true;
+    var debug = false;
 
     // Given the div element of a comment, return its timestamp
     var timestampForComment = function(commentDiv) {
@@ -118,7 +118,7 @@
                     div.next('br').remove();
                     div.next('br').remove();
                     //          div.remove();
-                    div.css("color","red");
+                    div.css({'color': "#333"});
                 }
 
                 deletedCount += 1;
