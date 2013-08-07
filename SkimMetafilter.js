@@ -129,6 +129,7 @@
         // We need some sort of minimum.
         $.each(comments, function (index, comment) {
             if (comment.favorite < minimumFavorites) {
+                var div = $(comment.div);
 
                 if (debug) {
                     div.css({'background-color': 'rgb(0,51,70)'});
