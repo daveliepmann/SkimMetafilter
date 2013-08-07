@@ -66,6 +66,24 @@
         }
     };
 
+
+    // Remove (hide or make less visible) a given comment.
+    removeComment = function(comment) {
+
+        $(comment).addClass("dimmedForSkimming");
+
+        var style = $("<style>.dimmedForSkimming { color: #fff; }</style>");
+        $('html > head').append(style);
+
+        // var div = $(comment.div);
+        // if (debug) {
+        //     div.css({'background-color': 'rgb(0,51,70)'});
+        // } else {
+        //     div.css({'color': "#aaa"});
+        // }
+    };
+
+
     filterComments = function () {
         var totalFavorites = 0;
         var favorites      = [];
@@ -112,6 +130,7 @@
         $.each(comments, function (index, comment) {
             if (favoriteSum > filterThreshold) {
                 removeComment(comment);
+                deletedCount += 1;
             } else {
                 favoriteSum += comment.favorite;
             }
@@ -122,6 +141,7 @@
         $.each(comments, function (index, comment) {
             if (comment.favorite < minimumFavorites) {
                 removeComment(comment);
+                deletedCount += 1;
             }
         });
 
@@ -132,22 +152,3 @@
 
     filterComments();
 })();
-
-// Remove (hide or make less visible) a given comment.
-function removeComment(comment) {
-
-    $(comment).addClass("dimmedForSkimming");
-
-    var style = $("<style>.dimmedForSkimming { color: #fff; }</style>");
-    $('html > head').append(style);
-
-    // var div = $(comment.div);
-
-    // if (debug) {
-    //     div.css({'background-color': 'rgb(0,51,70)'});
-    // } else {
-    //     div.css({'color': "#aaa"});
-    // }
-
-    deletedCount += 1;
-}
