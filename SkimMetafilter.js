@@ -143,7 +143,8 @@
         });
 
         // Style the removed comments
-        var style = $("<style>.dimmedForSkimming { color: #aaa; }.dimmedForSkimming a { color: red; }</style>");
+        var style = $("<style>.dimmedForSkimming { color: #aaa; }"
+                      + " .dimmedForSkimming > a { color: red; }</style>");
         $('html > head').append(style);
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
