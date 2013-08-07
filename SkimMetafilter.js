@@ -70,7 +70,7 @@
     // Remove (hide or make less visible) a given comment.
     removeComment = function(comment) {
 
-        $(comment).addClass("dimmedForSkimming");
+        $(comment.div).addClass("dimmedForSkimming");
 
         // var div = $(comment.div);
         // if (debug) {
