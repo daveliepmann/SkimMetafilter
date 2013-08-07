@@ -1,5 +1,6 @@
 (function () {
     var debug = false;
+    var minimumFavorites = 3;
 
     // Given the div element of a comment, return its timestamp
     var timestampForComment = function(commentDiv) {
@@ -115,15 +116,26 @@
                 if (debug) {
                     div.css({'background-color': 'rgb(0,51,70)'});
                 } else {
-                    //div.next('br').remove();
-                    //div.next('br').remove();
-                    //div.remove();
                     div.css({'color': "#aaa"});
                 }
 
                 deletedCount += 1;
             } else {
                 favoriteSum += comment.favorite;
+            }
+        });
+
+        // Once- and twice-favorited posts are lame.
+        // We need some sort of minimum.
+        $.each(comments, function (index, comment) {
+            if (comment.favorite < minimumFavorites) {
+
+                if (debug) {
+                    div.css({'background-color': 'rgb(0,51,70)'});
+                } else {
+                    div.css({'color': "#aaa"});
+                }
+
             }
         });
 
