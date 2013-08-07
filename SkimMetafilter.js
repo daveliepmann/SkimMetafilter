@@ -144,7 +144,7 @@
 
         // Style the removed comments
         var style = $("<style>.dimmedForSkimming { color: #aaa; }"
-                      + " .dimmedForSkimming span a { color: #cc0; }</style>");
+                      + " .dimmedForSkimming span a { color: #cb9; }</style>");
         $('html > head').append(style);
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
