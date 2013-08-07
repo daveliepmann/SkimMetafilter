@@ -111,15 +111,7 @@
 
         $.each(comments, function (index, comment) {
             if (favoriteSum > filterThreshold) {
-                var div = $(comment.div);
-
-                if (debug) {
-                    div.css({'background-color': 'rgb(0,51,70)'});
-                } else {
-                    div.css({'color': "#aaa"});
-                }
-
-                deletedCount += 1;
+                removeComment(comment);
             } else {
                 favoriteSum += comment.favorite;
             }
@@ -129,14 +121,7 @@
         // We need some sort of minimum.
         $.each(comments, function (index, comment) {
             if (comment.favorite < minimumFavorites) {
-                var div = $(comment.div);
-
-                if (debug) {
-                    div.css({'background-color': 'rgb(0,51,70)'});
-                } else {
-                    div.css({'color': "#aaa"});
-                }
-
+                removeComment(comment);
             }
         });
 
@@ -147,3 +132,22 @@
 
     filterComments();
 })();
+
+// Remove (hide or make less visible) a given comment.
+function removeComment(comment) {
+
+    $(comment).addClass("dimmedForSkimming");
+
+    var style = $("<style>.dimmedForSkimming { color: #fff; }</style>");
+    $('html > head').append(style);
+
+    // var div = $(comment.div);
+
+    // if (debug) {
+    //     div.css({'background-color': 'rgb(0,51,70)'});
+    // } else {
+    //     div.css({'color': "#aaa"});
+    // }
+
+    deletedCount += 1;
+}
