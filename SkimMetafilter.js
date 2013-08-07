@@ -14,7 +14,7 @@
         } else {
             return (Date.parse(pieces[0].replace(/on/, '')));
         }
-    }
+    };
 
     var loggedIn;
 
@@ -71,9 +71,6 @@
     removeComment = function(comment) {
 
         $(comment).addClass("dimmedForSkimming");
-
-        var style = $("<style>.dimmedForSkimming { color: #fff; }</style>");
-        $('html > head').append(style);
 
         // var div = $(comment.div);
         // if (debug) {
@@ -144,6 +141,11 @@
                 deletedCount += 1;
             }
         });
+
+        // Style the removed comments
+        var style = $("<style>.dimmedForSkimming { color: red; }</style>");
+        $('html > head').append(style);
+
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
                     "; kept " + (comments.length - deletedCount) + " out of " + comments.length +
