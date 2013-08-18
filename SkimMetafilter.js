@@ -152,7 +152,7 @@
                     "; kept " + deletedCount + " out of " + comments.length +
                     " comments. Highlighted " + highlightedCount + ""
                     + " using a highlighting threshold of " +
-                    highlightThreshold ".");
+                    highlightThreshold + ".");
     };
 
     filterComments();
