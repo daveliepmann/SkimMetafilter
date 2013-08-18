@@ -124,7 +124,7 @@
             if (favoriteSum > filterThreshold) {
                 removeComment(comment);
                 deletedCount += 1;
-            } else if (favoriteSum > highlightThreshold) {
+            } else if (comment.favorite > highlightThreshold) {
                 highlightComment(comment);
                 highlightedCount += 1;
             } else {
