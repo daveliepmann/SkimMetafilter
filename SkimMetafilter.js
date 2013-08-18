@@ -66,20 +66,15 @@
         }
     };
 
-
     // Remove (hide or make less visible) a given comment.
     removeComment = function(comment) {
-
         $(comment.div).addClass("dimmedForSkimming");
-
-        // var div = $(comment.div);
-        // if (debug) {
-        //     div.css({'background-color': 'rgb(0,51,70)'});
-        // } else {
-        //     div.css({'color': "#aaa"});
-        // }
     };
 
+    // Highlight ("best-answer" style) a given comment.
+    highlightComment = function(comment) {
+        $(comment.div).addClass("highlightedForSkimming");
+    };
 
     filterComments = function () {
         var totalFavorites = 0;
@@ -120,20 +115,23 @@
 
         var favoriteSum  = 0;
         var deletedCount = 0;
+        var highlightedCount = 0;
 
         // Step through the comments until we accumulate enough to satisfy
         // the criterion, and delete all the rest
-
         $.each(comments, function (index, comment) {
             if (favoriteSum > filterThreshold) {
                 removeComment(comment);
                 deletedCount += 1;
+            } else if (favoriteSum > highlightThreshold) {
+                highlightComment(comment);
+                highlightedCount += 1;
             } else {
                 favoriteSum += comment.favorite;
             }
         });
 
-        // Once- and twice-favorited posts are lame.
+        // Once- and twice-favorited comments are lame.
         // We need some sort of minimum.
         $.each(comments, function (index, comment) {
             if (comment.favorite < minimumFavorites) {
@@ -142,9 +140,11 @@
             }
         });
 
-        // Style the removed comments
+        // Style the removed and highlighted comments
         var style = $("<style>.dimmedForSkimming { color: #aaa; }"
-                      + " .dimmedForSkimming span a { color: #cb9; }</style>");
+                      + " .dimmedForSkimming span a { color: #cb9; }"
+                      + " .highlightedForSkimming { background-color:"
+                      + " #333033; padding: 4px; }</style>");
         $('html > head').append(style);
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
