@@ -144,10 +144,12 @@
         });
 
         // Style the removed and highlighted comments
+        // #333033 is askmefi's best-answer color
+        // TODO: condition the color to current mefi subsite (metatalk/ask/etc)
         var style = $("<style>.dimmedForSkimming { color: #aaa; }"
                       + " .dimmedForSkimming span a { color: #cb9; }"
                       + " .highlightedForSkimming { background-color:"
-                      + " #333033; padding: 4px; }</style>");
+                      + " #332FFF; padding: 4px; }</style>");
         $('html > head').append(style);
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
