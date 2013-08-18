@@ -1,6 +1,7 @@
 (function () {
     var debug = false;
     var minimumFavorites = 3;
+    var highlightMinimum = 20;
 
     // Given the div element of a comment, return its timestamp
     var timestampForComment = function(commentDiv) {
@@ -124,7 +125,8 @@
             if (favoriteSum > filterThreshold) {
                 removeComment(comment);
                 deletedCount += 1;
-            } else if (comment.favorite > highlightThreshold) {
+            } else if (comment.favorite > highlightThreshold ||
+                       comment.favorite > highlightMinimum) {
                 highlightComment(comment);
                 highlightedCount += 1;
             } else {
