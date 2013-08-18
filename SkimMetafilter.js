@@ -149,8 +149,10 @@
         $('html > head').append(style);
 
         console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
-                    "; kept " + (comments.length - deletedCount) + " out of " + comments.length +
-                    " comments");
+                    "; kept " + deletedCount + " out of " + comments.length +
+                    " comments. Highlighted " + highlightedCount + ""
+                    + " using a highlighting threshold of " +
+                    highlightThreshold ".");
     };
 
     filterComments();
