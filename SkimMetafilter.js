@@ -127,7 +127,7 @@
     });
 
     // Provide a visual indication that the page has been filtered
-    $('body').css({'background-color': 'rgb(0,102,140)'});
+    $('.content').css({'background-color': 'rgb(255,255,246)'});
 
     console.log("Total favorites = " + totalFavorites + "; threshold = " + filterThreshold +
                 "; kept " + (comments.length - deletedCount) + " out of " + comments.length +
