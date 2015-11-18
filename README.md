@@ -6,7 +6,7 @@ I love reading the comments on [Metafilter](http://www.metafilter.com). Sometime
 To use, create a bookmark with the following text as the link, and click it when you're on a Metafilter discussion page.
 
 ```javascript
-javascript:(function() { var newScript = document.createElement('script'); newScript.src = 'https://cdn.rawgit.com/vikasgorur/SkimMetafilter/master/SkimMetafilter.js'; document.body.appendChild(newScript); })()
+javascript:(function() { var newScript = document.createElement('script'); newScript.src = 'https://cdn.rawgit.com/vikasgorur/SkimMetafilter/01df220718286ce19e53d28776ef0bffc611d21b/SkimMetafilter.js'; document.body.appendChild(newScript); })()
 ```
 
 (Note: We serve the script using [RawGit](https://rawgit.com/) because some browsers won't execute
