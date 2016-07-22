@@ -65,6 +65,14 @@
     }
   };
 
+  // remove a comment from the page
+  removeComment = function (comment) {
+    var div = $(comment.div);
+    div.next('br').remove();
+    div.next('br').remove();
+    div.remove();
+  };
+
   filterComments = function () {
     var totalFavorites = 0;
     var favorites      = [];
@@ -74,7 +82,12 @@
       var fav       = favoriteForComment(elem);
       var timestamp = timestampForComment(elem);
 
-      comments.push({'div': elem, 'favorite': fav, 'timestamp': timestamp});
+      comments.push({
+        'div': elem,
+        'favorite': fav,
+        'timestamp': timestamp,
+        'length': elem.childNodes[0].length
+      });
       favorites.push(fav);
       totalFavorites += fav;
     });
@@ -115,14 +128,20 @@
         if (debug) {
           div.css({'background-color': 'rgb(0,51,70)'});
         } else {
-          div.next('br').remove();
-          div.next('br').remove();
-          div.remove();
+          removeComment(comment);
         }
 
         deletedCount += 1;
       } else {
         favoriteSum += comment.favorite;
+      }
+    });
+
+    // Delete comments that are too short.
+    $.each(comments, function (index, comment) {
+      if (comment.length < 256) {
+        removeComment(comment);
+        deletedCount += 1;
       }
     });
 
