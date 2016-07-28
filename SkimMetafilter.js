@@ -86,7 +86,7 @@
         'div': elem,
         'favorite': fav,
         'timestamp': timestamp,
-        'length': (elem.childNodes[0] && elem.childNodes[0].length) || 0
+        'length': elem.childNodes[0].length
       });
       favorites.push(fav);
       totalFavorites += fav;
