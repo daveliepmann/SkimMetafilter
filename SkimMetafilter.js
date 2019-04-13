@@ -76,6 +76,8 @@
     highlightComment = function(comment) {
         $(comment.div).addClass("highlightedForSkimming");
     };
+    // // Provide a visual indication that the page has been filtered
+    // $('.content').css({'background-color': 'rgb(255,255,246)'});
 
     filterComments = function () {
         var totalFavorites = 0;
